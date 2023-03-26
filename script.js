@@ -48,15 +48,17 @@ function showQuestion() {
     document.getElementById('answer_4').innerHTML = question['answer_4'];
 
 }
-function answer(answer){
+function answer(answer) {
     let question = questions[currentQuestion];
-    let answernum = question[answer]
-    let index= indexOf(answernum); //Klappt nicht
-    if (index==question['right_answer']){
-        document.getElementById(`${answer}`).classList.add('bg-green');
-    }
-    else{
-        document.getElementById(`${answer}`).classList.add('bg-red');
-    }
 
+    let questionNumber = answer.slice(-1);
+    let rightAnswer = question['right_answer'];
+    let idOfRightAnswer = `answer_${rightAnswer}`
+    if (questionNumber == question['right_answer']) {
+        document.getElementById(answer).classList.add('bg-green');
+    }
+    else {
+        document.getElementById(answer).classList.add('bg-red');
+        document.getElementById(idOfRightAnswer).classList.add('bg-green');
+    }
 }
