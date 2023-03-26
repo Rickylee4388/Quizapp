@@ -1,0 +1,34 @@
+body{
+    background-color: #F7F7F7 !important; 
+}
+.container{
+    background-color: #F7F7F7 !important;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.question-footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(0,0,0,0.4);
+    padding-top: 12px;
+}
+.quizcard{
+    width: 30rem;
+}
+.card-img-top{
+    object-fit: cover;
+    height: 200px;
+}
+.quizanswercard:hover{
+    cursor: pointer;
+    background-color: rgba(0, 0,0,0.05);
+}
+.bg-green{
+    background-color: rgb(13, 222, 13);
+}
+.bg-red{
+    background-color: red;
+}
