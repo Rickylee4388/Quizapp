@@ -27,8 +27,8 @@ body{
     background-color: rgba(0, 0,0,0.05);
 }
 .bg-green{
-    background-color: rgb(13, 222, 13);
+    background-color: rgb(13, 222, 13) !important;
 }
 .bg-red{
-    background-color: red;
+    background-color: red !important;
 }

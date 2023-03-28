@@ -17,17 +17,26 @@
 </head>
 
 <body onload="init()">
+  <!-- Kopfzeile -->
   <nav class="navbar bg-body-tertiary">
     <div class="container-fluid">
       <span class="navbar-brand mb-0 h1">Quizapp</span>
     </div>
   </nav>
+    <!-- Quizcontainer -->
   <div class="container">
     <div class="card quizcard">
-      <img src="Quizapp Blue/bg b.png" class="card-img-top">
-      <div class="card-body">
-        <h5 id="question" class="card-title" >Frage</h5>
-        
+      <!-- Bild über Quizkarte -->
+      <img id="headerimage" src="QuizappBlue/bgb.png" class="card-img-top">
+      <!-- Endbildschirm -->
+      <div id="end-body" class="card-body" style="display: none">
+        <h5 class="card-title">Das Quiz ist zuende!</h5>
+        <p class="card-text">Du hast <b id="correctquestions">x</b> von <b id="allquestions">x</b> Fragen richtig beantwortet!</p>
+        <a href="#" class="btn btn-primary">Erneut Spielen</a>
+      </div>
+      <!-- Quizfragen anzeige -->
+      <div id="quiz-body" class="card-body">
+        <h5 id="question" class="card-title">Frage</h5>
         <div class="card mb-2 quizanswercard" onclick="answer('answer_1')">
           <div id="answer_1" class="card-body">
             Antwort
@@ -49,8 +58,8 @@
           </div>
         </div>
         <div class="question-footer">
-          <div><b>1</b> von <b id="questionlength">5</b> Fragen</div>
-          <button class="btn btn-primary">Nächste Frage</button>
+          <div><b id="currentquestion">1</b> von <b id="questionlength">5</b> Fragen</div>
+          <button id="next" class="btn btn-primary" disabled onclick="nextQuestion()">Nächste Frage</button>
         </div>
       </div>
     </div>
