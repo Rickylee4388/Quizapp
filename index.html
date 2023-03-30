@@ -29,10 +29,13 @@
       <!-- Bild über Quizkarte -->
       <img id="headerimage" src="QuizappBlue/bgb.png" class="card-img-top">
       <!-- Endbildschirm -->
+      <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+        <div id="progressbar" class="progress-bar" style="width: 25%">25%</div>
+      </div>
       <div id="end-body" class="card-body" style="display: none">
         <h5 class="card-title">Das Quiz ist zuende!</h5>
         <p class="card-text">Du hast <b id="correctquestions">x</b> von <b id="allquestions">x</b> Fragen richtig beantwortet!</p>
-        <a href="#" class="btn btn-primary">Erneut Spielen</a>
+        <a onclick="restartGame()" href="#" class="btn btn-primary">Erneut Spielen</a>
       </div>
       <!-- Quizfragen anzeige -->
       <div id="quiz-body" class="card-body">
@@ -64,6 +67,7 @@
       </div>
     </div>
   </div>
+  
 
 
 </body>

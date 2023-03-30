@@ -34,6 +34,9 @@ let questions = [
 ];
 let currentQuestion = 0;
 let correctanswer = 0;
+let Audio_win = new Audio('QuizappBlue/win.mp3');
+let Audio_lose = new Audio('QuizappBlue/lose.mp3');
+let Audio_applause = new Audio('QuizappBlue/applause.mp3');
 
 function init() {
     document.getElementById('questionlength').innerHTML = '';
@@ -42,15 +45,24 @@ function init() {
 }
 
 function showQuestion() {
-    if (currentQuestion >= questions.length) {
+    if (currentQuestion >= questions.length) {//show end-display
+        let percent = Math.round(100);
+        Audio_applause.play();
+        document.getElementById('progressbar').innerHTML=`${percent}%`
+        document.getElementById('progressbar').style.width = `${percent}%`;
         document.getElementById('end-body').style = '';
         document.getElementById('quiz-body').style = 'display:none';
         document.getElementById('allquestions').innerHTML = questions.length;
         document.getElementById('correctquestions').innerHTML = correctanswer;
         document.getElementById('headerimage').src = "QuizappBlue/Group5.png";
 
-    } else {
+    } else {//show question
+        let percent = currentQuestion / questions.length ; 
+        percent = Math.round(percent * 100) ;
+        document.getElementById('progressbar').innerHTML=`${percent}%`;
+        document.getElementById('progressbar').style.width = `${percent}%`;
         let question = questions[currentQuestion];
+
         document.getElementById('question').innerHTML = question['question'];
         document.getElementById('answer_1').innerHTML = question['answer_1'];
         document.getElementById('answer_2').innerHTML = question['answer_2'];
@@ -68,11 +80,13 @@ function answer(answer) {
     let idOfRightAnswer = `answer_${rightAnswer}`
     if (questionNumber == question['right_answer']) {
         document.getElementById(answer).parentNode.classList.add('bg-green');
+        Audio_win.play();
         correctanswer++;
     }
     else {
         document.getElementById(answer).parentNode.classList.add('bg-red');
         document.getElementById(idOfRightAnswer).parentNode.classList.add('bg-green');
+        Audio_lose.play();
     }
     document.getElementById('next').disabled = false;
 }
@@ -90,4 +104,13 @@ function resetAnswerButtons() {
     document.getElementById('answer_2').parentNode.classList.remove('bg-red', 'bg-green');
     document.getElementById('answer_3').parentNode.classList.remove('bg-red', 'bg-green');
     document.getElementById('answer_4').parentNode.classList.remove('bg-red', 'bg-green');
+}
+
+function restartGame(){
+    document.getElementById('end-body').style = 'display:none';//hide end body
+    document.getElementById('quiz-body').style = '';//show question body
+    document.getElementById('headerimage').src = "QuizappBlue/bgb.png";
+    currentQuestion = 0;
+    correctanswer = 0;
+    init();
 }
