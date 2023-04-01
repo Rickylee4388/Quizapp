@@ -39,6 +39,7 @@ let Audio_lose = new Audio('QuizappBlue/lose.mp3');
 let Audio_applause = new Audio('QuizappBlue/applause.mp3');
 
 function init() {
+    document.getElementById('amountofquestions').innerHTML = questions.length;
     document.getElementById('questionlength').innerHTML = '';
     document.getElementById('questionlength').innerHTML = questions.length;
     showQuestion();
@@ -107,6 +108,7 @@ function resetAnswerButtons() {
 }
 
 function restartGame(){
+    document.getElementById('start-body').style = 'display:none';
     document.getElementById('end-body').style = 'display:none';//hide end body
     document.getElementById('quiz-body').style = '';//show question body
     document.getElementById('headerimage').src = "QuizappBlue/bgb.png";

@@ -1,6 +1,13 @@
 body{
     background-color: #F7F7F7 !important; 
 }
+.flex{
+    display: flex;
+
+}
+.bg-blue{
+    background-color: blue;
+}
 .container{
     background-color: #F7F7F7 !important;
     min-height: 100vh;
@@ -32,3 +39,12 @@ body{
 .bg-red{
     background-color: red !important;
 }
+.menulogo{
+    height: 110px;
+    width: 110px;
+}
+.dropdown{
+    width: 100%;
+}
+
+    
