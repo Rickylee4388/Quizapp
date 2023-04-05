@@ -9,120 +9,148 @@
   <link rel="stylesheet" href="style.css">
   <script src="script.js"></script>
   <!-- Bootstrap Files -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="fonts.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
     crossorigin="anonymous"></script>
+  <!-- //Sidebar -->
+  <link rel="stylesheet" href="sidebar/css/style.css">
+
 </head>
 
 <body onload="init()">
   <div id="display" class="flex">
     <!-- Sidebar -->
 
-    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar"
-      aria-controls="sidebar" style="height: 20px;">
-      Button with data-bs-target
-    </button>
-    <div id="sidebar" class="offcanvas offcanvas-start" tabindex="-1" style="height:100vh; width: 20%, visibility: hidden;"
-      aria-hidden="true">
-      <div id="sidebardiv" class="flex-column flex-shrink-0 p-3 bg-blue text-white align-items-center" style="height:100vh">
-        <div class="d-flex align-items-center justify-content-center mb-3 mb-md-0 text-decoration-none">
-          <img id="menulogo" class="menulogo" src="QuizappBlue/Group8.png" alt="">
-        </div>
-        <hr>
-        <ul class="nav nav-pills flex-column mb-auto text-white fs-4 text">
-          <li>
-            <a href="#" class="nav-link text-white">
-              Dashboard
-            </a>
-          </li>
-          <li>
-            <a href="#" class="nav-link text-white">
-              Orders
-            </a>
-          </li>
-          <li>
-            <a href="#" class="nav-link text-white">
-              Products
-            </a>
-          </li>
-          <li>
-            <a href="#" class="nav-link text-white">
-              Customers
-            </a>
-          </li>
-        </ul>
-        <hr>
-        <div class="dropdown">
-          <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle" id="dropdownUser2"
-            data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="QuizappBlue/logo2.png" alt="" width="32" height="32" class="rounded-circle me-2">
-            <strong>Infos</strong>
-          </a>
-          <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
-            <li><a class="dropdown-item" href="#">Impressum</a></li>
-            <li><a class="dropdown-item" href="#">Datenschutz</a></li>
-            <li><a class="dropdown-item" href="#">Über Quizapp</a></li>
-          </ul>
+    <!-- Page Content  -->
+    <div id="content" class="bg-ligtblue">
+      <div class="wrapper d-flex align-items-stretch ">
+        <nav id="sidebar">
+          <div class="custom-menu">
+            <button type="button" id="sidebarCollapse" class="btn btn-primary">
+              <i class="fa fa-bars"></i>
+              <span class="sr-only">Toggle Menu</span>
+            </button>
+          </div>
+          <div class="p-4 pt-5">
+            <div class="d-flex justify-content-center">
+              <img src="QuizappBlue/Group8.png" alt="">
+            </div>
+            
+            <ul class="list-unstyled components mb-3 mt-3">
+              <li>
+                <a href="#">Addition</a>
+              </li>
+              <li>
+                <a href="#">Substraktion</a>
+              </li>
+              <li>
+                <a href="#">Multiplikation</a>
+              </li>
+              <li>
+                <a href="#">Division</a>
+              </li>
+              <li>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Infos</a>
+                <ul class="collapse list-unstyled" id="pageSubmenu">
+                  <li>
+                    <a href="impressum.html">Impressum</a>
+                  </li>
+                  <li>
+                    <a href="#">Datenschutz</a>
+                  </li>
+                  <li>
+                    <a href="#">Über Quizapp</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+
+            <div class="footer mt-1">
+              <p class="small"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                Copyright &copy;
+                <script>document.write(new Date().getFullYear());</script> All rights reserved | This template
+                is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com"
+                  target="_blank">Colorlib.com</a>
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+              </p>
+            </div>
+
+          </div>
+        </nav>
+
+        <!-- Quiz Container -->
+        <div class="container nospace">
+          <div class="card quizcard height480">
+            <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="25" aria-valuemin="0"
+              aria-valuemax="100">
+              <div id="progressbar" class="progress-bar" style="width: 25%">25%</div>
+            </div>
+            <!-- End screen -->
+            <div id="end-body" class="card-body bg-beige end" style="display: none">
+              <div id="circle" class="circle">
+                <img src="QuizappBlue/Group5.png" alt="">
+                <h5 class="card-title">Das Quiz ist zuende!</h5>
+                <p class="card-text text-blue">Du hast <b id="correctquestions">x</b> von <b id="allquestions">x</b> Fragen richtig
+                  beantwortet!</p>
+                <a id="restartbtn" onclick="restartGame()" href="#" class="restartbtn btn btn-primary">Erneut Spielen</a>
+              </div>
+              </div>
+
+            <!-- Start Screen -->
+            <div id="start-body" class="card-body start-body height480">
+              <h5 class="card-title pt-sans mb-5"><b>Lust auf ein kleines Mathe Quiz?!</b> </h5>
+              <p class="card-text pt-sans mb-5">Es warten <b id="amountofquestions">x</b> Fragen auf dich.</p>
+              <a onclick="restartGame()" href="#" class="btn btn-primary">Let's Go!</a>
+            </div>
+            <!-- Show questions -->
+            <div id="quiz-body" class="card-body rubik bg-beige" style="display: none">
+              <h5 id="question" class="question rubik card-title">Frage</h5>
+              <div class="card mb-2 quizanswercard" onclick="answer('answer_1')">
+                <div id="letter_1" class="letterbox bg-grey"><b>A</b> </div>
+                <div id="answer_1" class="card-body">
+                  
+                  Antwort
+                </div>
+              </div>
+              <div class="card mb-2 quizanswercard d-flex " onclick="answer('answer_2')">
+                <div id="letter_2" class="letterbox bg-grey"><b>B</b></div>
+                <div id="answer_2" class="card-body">
+                  Antwort
+                </div>
+              </div>
+              <div class="card mb-2 quizanswercard" onclick="answer('answer_3')">
+                <div id="letter_3" class="letterbox bg-grey"><b>C</b></div>
+                <div id="answer_3" class="card-body">
+                    Antwort
+                </div>
+              </div>
+              <div class="card mb-2 quizanswercard" onclick="answer('answer_4')">
+                <div id="letter_4" class="letterbox bg-grey"><b>D</b></div>
+                <div id="answer_4" class="card-body">
+                  Antwort
+                </div>
+              </div>
+              <div class="question-footer">
+                <div><b id="currentquestion">1</b> von <b id="questionlength">5</b> Fragen</div>
+                <button id="next" class="btn btn-primary" disabled onclick="nextQuestion()">Nächste Frage</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- Quizcontainer -->
-    <div class="container">
-      <div class="card quizcard">
-        <!-- Bild über Quizkarte -->
-        <img id="headerimage" src="QuizappBlue/bgb.png" class="card-img-top">
-        <!-- Endbildschirm -->
-        <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="25" aria-valuemin="0"
-          aria-valuemax="100">
-          <div id="progressbar" class="progress-bar" style="width: 25%">25%</div>
-        </div>
-        <div id="end-body" class="card-body" style="display: none">
-          <h5 class="card-title">Das Quiz ist zuende!</h5>
-          <p class="card-text">Du hast <b id="correctquestions">x</b> von <b id="allquestions">x</b> Fragen richtig
-            beantwortet!</p>
-          <a onclick="restartGame()" href="#" class="btn btn-primary">Erneut Spielen</a>
-        </div>
-        <div id="start-body" class="card-body">
-          <h5 class="card-title">Lust auf ein kleines Mathe Quiz?!</h5>
-          <p class="card-text">Es warten <b id="amountofquestions">x</b> Fragen auf dich.</p>
-          <a onclick="restartGame()" href="#" class="btn btn-primary">Let's Go!</a>
-        </div>
-        <!-- Quizfragen anzeige -->
-        <div id="quiz-body" class="card-body" style="display: none">
-          <h5 id="question" class="card-title">Frage</h5>
-          <div class="card mb-2 quizanswercard" onclick="answer('answer_1')">
-            <div id="answer_1" class="card-body">
-              Antwort
-            </div>
-          </div>
-          <div class="card mb-2 quizanswercard" onclick="answer('answer_2')">
-            <div id="answer_2" class="card-body">
-              Antwort
-            </div>
-          </div>
-          <div class="card mb-2 quizanswercard" onclick="answer('answer_3')">
-            <div id="answer_3" class="card-body">
-              Antwort
-            </div>
-          </div>
-          <div class="card mb-2 quizanswercard" onclick="answer('answer_4')">
-            <div id="answer_4" class="card-body">
-              Antwort
-            </div>
-          </div>
-          <div class="question-footer">
-            <div><b id="currentquestion">1</b> von <b id="questionlength">5</b> Fragen</div>
-            <button id="next" class="btn btn-primary" disabled onclick="nextQuestion()">Nächste Frage</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
+      
+      
 </body>
+
+
+<script src="sidebar/js/jquery.min.js"></script>
+<script src="sidebar/js/popper.js"></script>
+<script src="sidebar/js/bootstrap.min.js"></script>
+<script src="sidebar/js/main.js"></script>
 
 </html>

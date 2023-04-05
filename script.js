@@ -1,11 +1,11 @@
 let questions = [
     {
-        "question": "Was ist 1+1?",
-        "answer_1": "2",
-        "answer_2": "3",
-        "answer_3": "4",
-        "answer_4": "5",
-        "right_answer": 1
+        "question": "Was ist 10*3?",
+        "answer_1": "20",
+        "answer_2": "30",
+        "answer_3": "40",
+        "answer_4": "50",
+        "right_answer": 2
     },
     {
         "question": "Was ist 3*3?",
@@ -16,20 +16,20 @@ let questions = [
         "right_answer": 4
     },
     {
-        "question": "Was ist 10-4?",
-        "answer_1": "3",
-        "answer_2": "6",
-        "answer_3": "7",
-        "answer_4": "9",
-        "right_answer": 2
+        "question": "Was ist 13*4?",
+        "answer_1": "52",
+        "answer_2": "61",
+        "answer_3": "72",
+        "answer_4": "97",
+        "right_answer": 1
     },
     {
-        "question": "Was ist 8+8?",
+        "question": "Was ist 8*8?",
         "answer_1": "30",
         "answer_2": "16",
-        "answer_3": "7",
-        "answer_4": "19",
-        "right_answer": 2
+        "answer_3": "64",
+        "answer_4": "68",
+        "right_answer": 3
     }
 ];
 let currentQuestion = 0;
@@ -81,12 +81,15 @@ function answer(answer) {
     let idOfRightAnswer = `answer_${rightAnswer}`
     if (questionNumber == question['right_answer']) {
         document.getElementById(answer).parentNode.classList.add('bg-green');
+        document.getElementById(`letter_${questionNumber}`).classList.add('bg-darkgreen');
         Audio_win.play();
         correctanswer++;
     }
     else {
         document.getElementById(answer).parentNode.classList.add('bg-red');
+        document.getElementById(`letter_${questionNumber}`).classList.add('bg-darkred');
         document.getElementById(idOfRightAnswer).parentNode.classList.add('bg-green');
+        document.getElementById(`letter_${rightAnswer}`).classList.add('bg-darkgreen');
         Audio_lose.play();
     }
     document.getElementById('next').disabled = false;
@@ -105,14 +108,25 @@ function resetAnswerButtons() {
     document.getElementById('answer_2').parentNode.classList.remove('bg-red', 'bg-green');
     document.getElementById('answer_3').parentNode.classList.remove('bg-red', 'bg-green');
     document.getElementById('answer_4').parentNode.classList.remove('bg-red', 'bg-green');
+    document.getElementById('letter_1').classList.remove('bg-darkred', 'bg-darkgreen');
+    document.getElementById('letter_2').classList.remove('bg-darkred', 'bg-darkgreen');
+    document.getElementById('letter_3').classList.remove('bg-darkred', 'bg-darkgreen');
+    document.getElementById('letter_4').classList.remove('bg-darkred', 'bg-darkgreen');
 }
 
 function restartGame(){
+    currentQuestion = 0;
+    correctanswer = 0;
     document.getElementById('start-body').style = 'display:none';
     document.getElementById('end-body').style = 'display:none';//hide end body
     document.getElementById('quiz-body').style = '';//show question body
-    document.getElementById('headerimage').src = "QuizappBlue/bgb.png";
-    currentQuestion = 0;
-    correctanswer = 0;
+
+
     init();
 }
+
+$(document).ready(function () {
+    $('#sidebarCollapse').on('click', function () {
+        $('#sidebar').toggleClass('active');
+    });
+});
