@@ -42,16 +42,16 @@
             
             <ul class="list-unstyled components mb-3 mt-3">
               <li>
-                <a href="#">Addition</a>
+                <a href="#" onclick="changeQuestions(addition)">Addition</a>
               </li>
               <li>
-                <a href="#">Substraktion</a>
+                <a href="#" onclick="changeQuestions(substraktion)">Substraktion</a>
               </li>
               <li>
-                <a href="#">Multiplikation</a>
+                <a href="#" onclick="changeQuestions(multiplikation)">Multiplikation</a>
               </li>
               <li>
-                <a href="#">Division</a>
+                <a href="#" onclick="changeQuestions(division)">Division</a>
               </li>
               <li>
                 <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Infos</a>
@@ -107,36 +107,36 @@
               <a onclick="restartGame()" href="#" class="btn btn-primary">Let's Go!</a>
             </div>
             <!-- Show questions -->
-            <div id="quiz-body" class="card-body rubik bg-beige" style="display: none">
+            <div id="quiz-body" class="card-body mediapadding rubik bg-beige" style="display: none">
               <h5 id="question" class="question rubik card-title">Frage</h5>
-              <div class="card mb-2 quizanswercard" onclick="answer('answer_1')">
+              <button id="answer_1button" class="w100 card mb-2 quizanswercard" onclick="answer('answer_1')">
                 <div id="letter_1" class="letterbox bg-grey"><b>A</b> </div>
                 <div id="answer_1" class="card-body">
                   
                   Antwort
                 </div>
-              </div>
-              <div class="card mb-2 quizanswercard d-flex " onclick="answer('answer_2')">
+              </button>
+              <button id="answer_2button" class="w100 card mb-2 quizanswercard d-flex " onclick="answer('answer_2')">
                 <div id="letter_2" class="letterbox bg-grey"><b>B</b></div>
                 <div id="answer_2" class="card-body">
                   Antwort
                 </div>
-              </div>
-              <div class="card mb-2 quizanswercard" onclick="answer('answer_3')">
+              </button>
+              <button id="answer_3button" class="w100 card mb-2 quizanswercard" onclick="answer('answer_3')">
                 <div id="letter_3" class="letterbox bg-grey"><b>C</b></div>
                 <div id="answer_3" class="card-body">
                     Antwort
                 </div>
-              </div>
-              <div class="card mb-2 quizanswercard" onclick="answer('answer_4')">
+              </button>
+              <button id="answer_4button" class="w100 card mb-2 quizanswercard" onclick="answer('answer_4')">
                 <div id="letter_4" class="letterbox bg-grey"><b>D</b></div>
                 <div id="answer_4" class="card-body">
                   Antwort
                 </div>
-              </div>
+              </button>
               <div class="question-footer">
                 <div><b id="currentquestion">1</b> von <b id="questionlength">5</b> Fragen</div>
-                <button id="next" class="btn btn-primary" disabled onclick="nextQuestion()">Nächste Frage</button>
+                <button id="next" disabled class="btn btn-primary" onclick="nextQuestion()">Nächste Frage</button>
               </div>
             </div>
           </div>

@@ -175,4 +175,16 @@ body {
         height: 91vh !important;
         margin-top: 60px !important;
     }
+    .circle{
+        margin-top: 25%;
+        height: 330px;
+        width: 330px;
+        padding: 30px;
+    }
+    .mediapadding{
+        padding-top: 20% !important;
+    }
+}
+.w100{
+    width: 100%;
 }
